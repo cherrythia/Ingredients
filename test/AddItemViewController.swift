@@ -40,14 +40,14 @@ class AddItemViewController: UIViewController {
         dateformatter.dateFormat = "dd/MM/yy"
         let dateString =  dateformatter.stringFromDate(datePicker.date)
         
-        let objectDic = ["item": "\(newItemTextField.text!)",
-                        "expirydate" : "\(dateString)",
-                        "remarks" : "\(remarks.text)",
-                        ]
-        
-        objectsAddItem.append(objectDic)
+//        let objectDic = ["item": "\(newItemTextField.text!)",
+//                        "expirydate" : "\(dateString)",
+//                        "remarks" : "\(remarks.text)",
+//                        ]
+//        
+//        objectsAddItem.append(objectDic)
         self.navigationController?.popViewControllerAnimated(true)
-        delegate?.addObjectsToMaster(objectsAddItem)           //Method to call delegate
+//        delegate?.addObjectsToMaster(objectsAddItem)           //Method to call delegate
         
         //Prase Test
         let testObject = PFObject(className: "TestObject")

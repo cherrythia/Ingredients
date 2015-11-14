@@ -112,11 +112,12 @@ class MasterViewController: UITableViewController, addItemDelegate {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             objects.removeAtIndex(indexPath.row)
-            objects[indexPath.row-1].deleteInBackground()
+            objects[indexPath.row].deleteInBackground()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
+        self.tableView.reloadData()
     }
 }
 
