@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class MasterViewController: UITableViewController, addItemDelegate {
 
@@ -34,6 +35,14 @@ class MasterViewController: UITableViewController, addItemDelegate {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+        
+        //Prase Test
+        let testObject = PFObject(className: "TestObject")
+        testObject["foo"] = "bar"
+        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            print("Object has been saved.")
+        }
+        
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -102,7 +111,5 @@ class MasterViewController: UITableViewController, addItemDelegate {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
-
-
 }
 
