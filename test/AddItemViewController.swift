@@ -11,6 +11,7 @@
 //http://stackoverflow.com/questions/30618172/how-to-send-data-back-by-popviewcontrolleranimated-for-swift
 
 import UIKit
+import Parse
 
 //MARK:- Protocol
 protocol addItemDelegate {
@@ -48,6 +49,14 @@ class AddItemViewController: UIViewController {
         self.navigationController?.popViewControllerAnimated(true)
         delegate?.addObjectsToMaster(objectsAddItem)           //Method to call delegate
         
+        //Prase Test
+        let testObject = PFObject(className: "TestObject")
+        testObject["item"] = newItemTextField.text
+        testObject["expirydate"] = dateString
+        testObject["remarks"] = remarks.text
+        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            print("Object has been saved.")
     }
 
+    }
 }
