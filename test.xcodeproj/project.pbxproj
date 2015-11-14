@@ -15,6 +15,7 @@
 		3C0655A91BF611850081CBA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C0655A71BF611850081CBA1 /* LaunchScreen.storyboard */; };
 		3C0655B41BF611850081CBA1 /* testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0655B31BF611850081CBA1 /* testTests.swift */; };
 		3C0655BF1BF611850081CBA1 /* testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0655BE1BF611850081CBA1 /* testUITests.swift */; };
+		3C06560B1BF614080081CBA1 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C06560A1BF614080081CBA1 /* AddItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		3C0655BA1BF611850081CBA1 /* testUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C0655BE1BF611850081CBA1 /* testUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testUITests.swift; sourceTree = "<group>"; };
 		3C0655C01BF611850081CBA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C06560A1BF614080081CBA1 /* AddItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				3C06559C1BF611850081CBA1 /* AppDelegate.swift */,
 				3C06559E1BF611850081CBA1 /* MasterViewController.swift */,
+				3C06560A1BF614080081CBA1 /* AddItemViewController.swift */,
 				3C0655A01BF611850081CBA1 /* DetailViewController.swift */,
 				3C0655A21BF611850081CBA1 /* Main.storyboard */,
 				3C0655A51BF611850081CBA1 /* Assets.xcassets */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C0655A11BF611850081CBA1 /* DetailViewController.swift in Sources */,
+				3C06560B1BF614080081CBA1 /* AddItemViewController.swift in Sources */,
 				3C06559F1BF611850081CBA1 /* MasterViewController.swift in Sources */,
 				3C06559D1BF611850081CBA1 /* AppDelegate.swift in Sources */,
 			);

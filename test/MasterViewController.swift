@@ -8,11 +8,19 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class MasterViewController: UITableViewController, addItemDelegate {
 
     var detailViewController: DetailViewController? = nil
     var objects = [AnyObject]()
-
+    
+    // MARK:- Extend Delegate Method
+    func addObjectsToMaster(parameter:[AnyObject]) {
+        self.objects = parameter
+        let indexPath = NSIndexPath(forRow: 0, inSection: 0)                                //animation
+        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+    }
+    
+    // MARK: - View Controller
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +29,7 @@ class MasterViewController: UITableViewController {
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
         self.navigationItem.rightBarButtonItem = addButton
+        
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
@@ -30,6 +39,8 @@ class MasterViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
         super.viewWillAppear(animated)
+        self.tableView.reloadData()
+        print(objects)
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,9 +49,11 @@ class MasterViewController: UITableViewController {
     }
 
     func insertNewObject(sender: AnyObject) {
-        objects.insert(NSDate(), atIndex: 0)
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        
+        let addItemViewController = self.storyboard?.instantiateViewControllerWithIdentifier("AddItem") as! AddItemViewController
+        self.navigationController?.pushViewController(addItemViewController, animated: true)
+         addItemViewController.delegate = self
+        addItemViewController.objectsAddItem = objects
     }
 
     // MARK: - Segues
@@ -48,7 +61,7 @@ class MasterViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row] as! NSDate
+                let object = objects[indexPath.row]
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
@@ -70,8 +83,9 @@ class MasterViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 
-        let object = objects[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
+        let object = objects[indexPath.row] as! NSDictionary
+        let item = object["item"]
+        cell.textLabel!.text = item?.description
         return cell
     }
 

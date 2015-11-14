@@ -11,6 +11,8 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var remarksLabel: UILabel!
 
 
     var detailItem: AnyObject? {
@@ -24,7 +26,12 @@ class DetailViewController: UIViewController {
         // Update the user interface for the detail item.
         if let detail = self.detailItem {
             if let label = self.detailDescriptionLabel {
-                label.text = detail.description
+                let item = detail["item"]
+                label.text = item?!.description
+                let expirydate = detail["expirydate"]
+                dateLabel.text = expirydate?!.description
+                let remarks = detail["remarks"]
+                remarksLabel.text = remarks?!.description
             }
         }
     }
