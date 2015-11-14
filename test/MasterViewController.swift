@@ -35,25 +35,17 @@ class MasterViewController: UITableViewController, addItemDelegate {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
-        
         let query = PFQuery(className: "TestObject")
         query.findObjectsInBackgroundWithBlock {
             (allObjects: [PFObject]?, error: NSError?) -> Void in
             
             if error == nil {
-    
-                // Do something with the found objects
-                if let allObjects = allObjects  {
-                    for object in allObjects {
-                        print(object)
-                    }
-                }
+                self.objects = allObjects!
             } else {
                 // Log details of the failure
                 print("Error: \(error!) \(error!.userInfo)")
             }
         }
-
     }
     
 
@@ -61,7 +53,6 @@ class MasterViewController: UITableViewController, addItemDelegate {
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
         super.viewWillAppear(animated)
         self.tableView.reloadData()
-        print(objects)
     }
 
     override func didReceiveMemoryWarning() {
