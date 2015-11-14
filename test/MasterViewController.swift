@@ -40,7 +40,10 @@ class MasterViewController: UITableViewController, addItemDelegate {
             (allObjects: [PFObject]?, error: NSError?) -> Void in
             
             if error == nil {
-                self.objects = allObjects!
+                for oneObject in allObjects! {
+                    self.objects.append(oneObject)
+                }
+                self.tableView.reloadData()
             } else {
                 // Log details of the failure
                 print("Error: \(error!) \(error!.userInfo)")
@@ -95,9 +98,9 @@ class MasterViewController: UITableViewController, addItemDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 
-        let object = objects[indexPath.row] as! NSDictionary
+        let object = objects[indexPath.row]
         let item = object["item"]
-        cell.textLabel!.text = item?.description
+        cell.textLabel!.text = item!!.description
         return cell
     }
 
@@ -109,6 +112,7 @@ class MasterViewController: UITableViewController, addItemDelegate {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             objects.removeAtIndex(indexPath.row)
+            objects[indexPath.row-1].deleteInBackground()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.

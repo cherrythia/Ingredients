@@ -55,7 +55,7 @@ class AddItemViewController: UIViewController {
         testObject["expirydate"] = dateString
         testObject["remarks"] = remarks.text
         testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-            print("Object has been saved.")
+        print("Object has been saved.")
     }
 
     }
