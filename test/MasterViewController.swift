@@ -17,8 +17,8 @@ class MasterViewController: UITableViewController, addItemDelegate {
     // MARK:- Extend Delegate Method
     func addObjectsToMaster() {
         self.viewWillAppear(true)
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)                                //animation
-        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+//        let indexPath = NSIndexPath(forRow: 0, inSection: 0)                                //animation
+//        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
     
     // MARK: - View Controller
