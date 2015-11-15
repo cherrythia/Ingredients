@@ -15,7 +15,7 @@ import Parse
 
 //MARK:- Protocol
 protocol addItemDelegate {
-    func addObjectsToMaster(parameter:[AnyObject])
+    func addObjectsToMaster()
 }
 
 class AddItemViewController: UIViewController {
@@ -26,7 +26,6 @@ class AddItemViewController: UIViewController {
     @IBOutlet weak var newItemTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var remarks: UITextView!
-    
     
     //MARK:- View Controller
     override func viewDidLoad() {
@@ -40,12 +39,6 @@ class AddItemViewController: UIViewController {
         dateformatter.dateFormat = "dd/MM/yy"
         let dateString =  dateformatter.stringFromDate(datePicker.date)
         
-//        let objectDic = ["item": "\(newItemTextField.text!)",
-//                        "expirydate" : "\(dateString)",
-//                        "remarks" : "\(remarks.text)",
-//                        ]
-//        
-//        objectsAddItem.append(objectDic)
         self.navigationController?.popViewControllerAnimated(true)
 //        delegate?.addObjectsToMaster(objectsAddItem)           //Method to call delegate
         

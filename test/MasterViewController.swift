@@ -15,14 +15,13 @@ class MasterViewController: UITableViewController, addItemDelegate {
     var objects = [AnyObject]()
     
     // MARK:- Extend Delegate Method
-    func addObjectsToMaster(parameter:[AnyObject]) {
-        self.objects = parameter
+    func addObjectsToMaster() {
+        self.viewWillAppear(true)
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)                                //animation
         self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
     
     // MARK: - View Controller
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -35,26 +34,24 @@ class MasterViewController: UITableViewController, addItemDelegate {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
-        let query = PFQuery(className: "TestObject")
-        query.findObjectsInBackgroundWithBlock {
-            (allObjects: [PFObject]?, error: NSError?) -> Void in
-            
-            if error == nil {
-                for oneObject in allObjects! {
-                    self.objects.append(oneObject)
-                }
-                self.tableView.reloadData()
-            } else {
-                // Log details of the failure
-                print("Error: \(error!) \(error!.userInfo)")
-            }
-        }
     }
     
 
     override func viewWillAppear(animated: Bool) {
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
         super.viewWillAppear(animated)
+        let query = PFQuery(className: "TestObject")
+        query.findObjectsInBackgroundWithBlock {
+            (allObjects: [PFObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                self.objects = allObjects!
+                self.tableView.reloadData()
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.userInfo)")
+            }
+        }
         self.tableView.reloadData()
     }
 
@@ -112,8 +109,11 @@ class MasterViewController: UITableViewController, addItemDelegate {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             objects.removeAtIndex(indexPath.row)
-            objects[indexPath.row].deleteInBackground()
+            
+            let singleObject : PFObject = self.objects[indexPath.row] as! PFObject
+            singleObject.deleteInBackground()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
