@@ -15,7 +15,7 @@ import Parse
 
 //MARK:- Protocol
 protocol addItemDelegate {
-    func addObjectsToMaster()
+    func addObjectsToMasterRefresh()
 }
 
 class AddItemViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
@@ -30,7 +30,12 @@ class AddItemViewController: UIViewController,UIImagePickerControllerDelegate,UI
     
     //MARK:- View Controller
     override func viewDidLoad() {
-
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyBoard")
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyBoard() {
+        self.view.endEditing(true)
     }
     
     //MARK:- Image
@@ -64,7 +69,7 @@ class AddItemViewController: UIViewController,UIImagePickerControllerDelegate,UI
         let dateString =  dateformatter.stringFromDate(datePicker.date)
     
         //Image
-        let imageData = UIImageJPEGRepresentation(imageView.image!, 1.0)
+        let imageData = UIImageJPEGRepresentation(imageView.image!, 0.0)
         let imageFile = PFFile(data: imageData!)
         
         //Prase Test
@@ -75,10 +80,9 @@ class AddItemViewController: UIViewController,UIImagePickerControllerDelegate,UI
         testObject["imageFile"] = imageFile
         testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
         print("Object has been saved.")
-        
+        self.delegate?.addObjectsToMasterRefresh()           //Method to call delegate
     }
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.delegate?.addObjectsToMaster()           //Method to call delegate
             self.navigationController?.popViewControllerAnimated(true)
         })
 

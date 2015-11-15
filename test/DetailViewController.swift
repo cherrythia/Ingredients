@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Parse
 
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var remarksLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
 
 
     var detailItem: AnyObject? {
@@ -32,6 +34,18 @@ class DetailViewController: UIViewController {
                 dateLabel.text = expirydate?!.description
                 let remarks = detail["remarks"]
                 remarksLabel.text = remarks?!.description
+                
+                //Image
+                let imageFile = detail["imageFile"] as? PFFile
+                imageFile!.getDataInBackgroundWithBlock {
+                    (imageData: NSData?, error: NSError?) -> Void in
+                    if error == nil {
+                        if let imageData = imageData {
+                            let image = UIImage(data:imageData)
+                            self.imageView.image = image
+                        }
+                    }
+                }
             }
         }
     }
