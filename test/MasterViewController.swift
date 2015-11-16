@@ -23,6 +23,7 @@ class MasterViewController: UITableViewController, addItemDelegate {
     
     // MARK: - View Controller
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
@@ -38,7 +39,7 @@ class MasterViewController: UITableViewController, addItemDelegate {
     
 
     override func viewWillAppear(animated: Bool) {
-        self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
+//        self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
         super.viewWillAppear(animated)
         let query = PFQuery(className: "TestObject")
         query.findObjectsInBackgroundWithBlock {
@@ -91,13 +92,32 @@ class MasterViewController: UITableViewController, addItemDelegate {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return objects.count
     }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 400
+    }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! tableViewCell
 
         let object = objects[indexPath.row]
         let item = object["item"]
-        cell.textLabel!.text = item!!.description
+        cell.labelCell.text = item!!.description
+        
+        //iamge 
+        let imageFile = object["imageFile"] as? PFFile
+        imageFile!.getDataInBackgroundWithBlock {
+            (imageData: NSData?, error: NSError?) -> Void in
+            if error == nil {
+                if let imageData = imageData {
+                    let image = UIImage(data:imageData)
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        cell.imageCell.image = image
+                    })
+                }
+            }
+        }
+
         return cell
     }
 
