@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WyH-fS-ek5">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Master-->
         <scene sceneID="pY4-Hu-kfo">
             <objects>
-                <navigationController title="Master" id="RMx-3f-FxP" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="masternavigationcontroller" title="Master" id="RMx-3f-FxP" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
@@ -143,14 +144,14 @@
                                 <exclude reference="n6K-1r-KQZ"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="80J-LY-jss"/>
-                                <exclude reference="ncI-oT-2y6"/>
                                 <exclude reference="2RO-n6-nev"/>
                                 <exclude reference="8gN-Zv-BA5"/>
-                                <exclude reference="2Mj-Hi-bng"/>
-                                <exclude reference="XcW-S9-9ca"/>
                                 <exclude reference="ABL-dI-TQU"/>
                                 <exclude reference="eN7-YJ-psw"/>
+                                <exclude reference="2Mj-Hi-bng"/>
+                                <exclude reference="XcW-S9-9ca"/>
+                                <exclude reference="80J-LY-jss"/>
+                                <exclude reference="ncI-oT-2y6"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -160,22 +161,34 @@
                                 <include reference="n6K-1r-KQZ"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="2RO-n6-nev"/>
+                                <include reference="8gN-Zv-BA5"/>
+                                <include reference="ABL-dI-TQU"/>
+                                <include reference="eN7-YJ-psw"/>
+                                <include reference="2Mj-Hi-bng"/>
+                                <include reference="XcW-S9-9ca"/>
                                 <include reference="80J-LY-jss"/>
                                 <exclude reference="Tsc-yG-G1q"/>
                                 <exclude reference="jWN-iV-94e"/>
                                 <include reference="ncI-oT-2y6"/>
                                 <exclude reference="tHV-ZD-HQj"/>
-                                <include reference="2RO-n6-nev"/>
-                                <include reference="8gN-Zv-BA5"/>
-                                <include reference="2Mj-Hi-bng"/>
-                                <include reference="XcW-S9-9ca"/>
-                                <include reference="ABL-dI-TQU"/>
-                                <include reference="eN7-YJ-psw"/>
                             </mask>
                         </variation>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
+                    <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="QZ5-mO-VpZ">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iZp-y8-Q4Y">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <state key="normal" title="Dismiss"/>
+                                <connections>
+                                    <action selector="dismissTapped:" destination="JEX-9P-axG" eventType="touchUpInside" id="W95-pU-B5C"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dateLabel" destination="hBX-MT-yYV" id="mHJ-DI-xgq"/>
                         <outlet property="detailDescriptionLabel" destination="0XM-y9-sOw" id="deQ-Na-JPF"/>
@@ -187,10 +200,88 @@
             </objects>
             <point key="canvasLocation" x="1336.5" y="365.25"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="7nt-1h-HeW">
+            <objects>
+                <viewController id="WyH-fS-ek5" customClass="LoginViewController" customModule="test" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AR0-VE-Vgt"/>
+                        <viewControllerLayoutGuide type="bottom" id="76O-o4-IPa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6bC-Pz-iTq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jnp-Qc-gIz">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="98" y="228" width="193" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ib1-9J-uOC">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="98" y="303" width="193" height="30"/>
+                                </variation>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8z-h3-Gff">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Login"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="175" y="385" width="38" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="login:" destination="WyH-fS-ek5" eventType="touchUpInside" id="2Hl-5I-fbP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jAH-Ns-RRa">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Register Account"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="141" y="458" width="118" height="30"/>
+                                </variation>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Jnp-Qc-gIz"/>
+                                <exclude reference="Ib1-9J-uOC"/>
+                                <exclude reference="o8z-h3-Gff"/>
+                                <exclude reference="jAH-Ns-RRa"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Jnp-Qc-gIz"/>
+                                <include reference="Ib1-9J-uOC"/>
+                                <include reference="o8z-h3-Gff"/>
+                                <include reference="jAH-Ns-RRa"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="Ib1-9J-uOC" id="tLj-hI-YXz"/>
+                        <outlet property="usernameTextField" destination="Jnp-Qc-gIz" id="INY-H3-SH7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pec-4W-tF6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1801.5" y="-330"/>
+        </scene>
         <!--Split View Controller-->
         <scene sceneID="Nki-YV-4Qg">
             <objects>
-                <splitViewController id="H1p-Uh-vWS" sceneMemberID="viewController">
+                <splitViewController storyboardIdentifier="splitViewController" id="H1p-Uh-vWS" sceneMemberID="viewController">
                     <toolbarItems/>
                     <connections>
                         <segue destination="RMx-3f-FxP" kind="relationship" relationship="masterViewController" id="BlO-5A-QYV"/>
@@ -204,7 +295,7 @@
         <!--Master-->
         <scene sceneID="smW-Zh-WAh">
             <objects>
-                <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MasterViewController" customModule="test" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="masterViewController" title="Master" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MasterViewController" customModule="test" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -437,20 +528,20 @@
                                 <exclude reference="rFb-xT-XT8"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="JbZ-UB-FoA"/>
-                                <exclude reference="du8-Qf-xKI"/>
                                 <exclude reference="MeA-HA-XLk"/>
                                 <exclude reference="jFA-0d-YjH"/>
-                                <exclude reference="DMF-e2-yFY"/>
-                                <exclude reference="lWf-fM-v4J"/>
-                                <exclude reference="jUd-xY-IIr"/>
-                                <exclude reference="t7k-CE-xzf"/>
-                                <exclude reference="Sw1-wd-Uui"/>
-                                <exclude reference="f2z-PT-0dD"/>
                                 <exclude reference="CKH-uk-TZs"/>
                                 <exclude reference="Iqk-y1-xKK"/>
+                                <exclude reference="jUd-xY-IIr"/>
+                                <exclude reference="t7k-CE-xzf"/>
                                 <exclude reference="dH2-ih-2mi"/>
                                 <exclude reference="u3E-LU-fjg"/>
+                                <exclude reference="Sw1-wd-Uui"/>
+                                <exclude reference="f2z-PT-0dD"/>
+                                <exclude reference="DMF-e2-yFY"/>
+                                <exclude reference="lWf-fM-v4J"/>
+                                <exclude reference="JbZ-UB-FoA"/>
+                                <exclude reference="du8-Qf-xKI"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -464,20 +555,20 @@
                                 <include reference="rFb-xT-XT8"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="JbZ-UB-FoA"/>
-                                <include reference="du8-Qf-xKI"/>
                                 <include reference="MeA-HA-XLk"/>
                                 <include reference="jFA-0d-YjH"/>
-                                <include reference="DMF-e2-yFY"/>
-                                <include reference="lWf-fM-v4J"/>
-                                <include reference="jUd-xY-IIr"/>
-                                <include reference="t7k-CE-xzf"/>
-                                <include reference="Sw1-wd-Uui"/>
-                                <include reference="f2z-PT-0dD"/>
                                 <include reference="CKH-uk-TZs"/>
                                 <include reference="Iqk-y1-xKK"/>
+                                <include reference="jUd-xY-IIr"/>
+                                <include reference="t7k-CE-xzf"/>
                                 <include reference="dH2-ih-2mi"/>
                                 <include reference="u3E-LU-fjg"/>
+                                <include reference="Sw1-wd-Uui"/>
+                                <include reference="f2z-PT-0dD"/>
+                                <include reference="DMF-e2-yFY"/>
+                                <include reference="lWf-fM-v4J"/>
+                                <include reference="JbZ-UB-FoA"/>
+                                <include reference="du8-Qf-xKI"/>
                             </mask>
                         </variation>
                     </view>

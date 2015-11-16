@@ -33,6 +33,7 @@
 		3C6E6D361BF77F45008FD0C3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6E6D351BF77F45008FD0C3 /* SystemConfiguration.framework */; };
 		3C6E6D381BF77F4D008FD0C3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6E6D371BF77F4D008FD0C3 /* libz.tbd */; };
 		3C6E6D3A1BF77F57008FD0C3 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6E6D391BF77F57008FD0C3 /* libsqlite3.tbd */; };
+		3CDA3D901BFA1C4D005859F0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDA3D8F1BFA1C4D005859F0 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		3C6E6D351BF77F45008FD0C3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3C6E6D371BF77F4D008FD0C3 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		3C6E6D391BF77F57008FD0C3 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		3CDA3D8F1BFA1C4D005859F0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				3C06559C1BF611850081CBA1 /* AppDelegate.swift */,
+				3CDA3D8F1BFA1C4D005859F0 /* LoginViewController.swift */,
 				3C06559E1BF611850081CBA1 /* MasterViewController.swift */,
 				3C06560A1BF614080081CBA1 /* AddItemViewController.swift */,
 				3C0655A01BF611850081CBA1 /* DetailViewController.swift */,
@@ -342,6 +345,7 @@
 				3C0655A11BF611850081CBA1 /* DetailViewController.swift in Sources */,
 				3C06560B1BF614080081CBA1 /* AddItemViewController.swift in Sources */,
 				3C06559F1BF611850081CBA1 /* MasterViewController.swift in Sources */,
+				3CDA3D901BFA1C4D005859F0 /* LoginViewController.swift in Sources */,
 				3C06559D1BF611850081CBA1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -23,6 +23,7 @@ class MasterViewController: UITableViewController, addItemDelegate {
     
     // MARK: - View Controller
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
@@ -38,7 +39,7 @@ class MasterViewController: UITableViewController, addItemDelegate {
     
 
     override func viewWillAppear(animated: Bool) {
-        self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
+//        self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
         super.viewWillAppear(animated)
         let query = PFQuery(className: "TestObject")
         query.findObjectsInBackgroundWithBlock {
