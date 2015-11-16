@@ -12,6 +12,15 @@ import Parse
 class LoginViewController:  UIViewController ,UISplitViewControllerDelegate{
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    override func viewDidLoad() {
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyBoard")
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyBoard() {
+        self.view.endEditing(true)
+    }
 
     @IBAction func login(sender: AnyObject) {
         let userName : String = self.usernameTextField.text!
