@@ -248,7 +248,20 @@
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="141" y="458" width="118" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="registerUser:" destination="WyH-fS-ek5" eventType="touchUpInside" id="HMd-Rv-hDN"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaK-IM-kZn">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="105" y="92" width="179" height="54"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -258,6 +271,7 @@
                                 <exclude reference="Ib1-9J-uOC"/>
                                 <exclude reference="o8z-h3-Gff"/>
                                 <exclude reference="jAH-Ns-RRa"/>
+                                <exclude reference="IaK-IM-kZn"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -266,6 +280,7 @@
                                 <include reference="Ib1-9J-uOC"/>
                                 <include reference="o8z-h3-Gff"/>
                                 <include reference="jAH-Ns-RRa"/>
+                                <include reference="IaK-IM-kZn"/>
                             </mask>
                         </variation>
                     </view>
@@ -276,7 +291,99 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pec-4W-tF6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1855.5" y="-326.25"/>
+            <point key="canvasLocation" x="-1975.5" y="-343.5"/>
+        </scene>
+        <!--Register User View Controller-->
+        <scene sceneID="DC0-mE-ujX">
+            <objects>
+                <viewController storyboardIdentifier="registerUser" id="n3o-nu-yb6" customClass="RegisterUserViewController" customModule="test" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xLc-El-K0U"/>
+                        <viewControllerLayoutGuide type="bottom" id="Sx3-3X-zdb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Knb-od-WmU">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ru0-Sz-n4t">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="53" y="160" width="294" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R29-33-xwK">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="53" y="238" width="294" height="30"/>
+                                </variation>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVl-m4-ITu">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Sign Up"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="173" y="397" width="55" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="signUp:" destination="n3o-nu-yb6" eventType="touchUpInside" id="bbI-on-A63"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bfc-oJ-QNh">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Cancel"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="176" y="472" width="48" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="cancelTapped:" destination="n3o-nu-yb6" eventType="touchUpInside" id="Hjb-EW-kBN"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register New Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nj5-1M-y0k">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="115" y="93" width="170" height="21"/>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="ru0-Sz-n4t"/>
+                                <exclude reference="R29-33-xwK"/>
+                                <exclude reference="MVl-m4-ITu"/>
+                                <exclude reference="Bfc-oJ-QNh"/>
+                                <exclude reference="Nj5-1M-y0k"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="ru0-Sz-n4t"/>
+                                <include reference="R29-33-xwK"/>
+                                <include reference="MVl-m4-ITu"/>
+                                <include reference="Bfc-oJ-QNh"/>
+                                <include reference="Nj5-1M-y0k"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="R29-33-xwK" id="mv4-WH-jgO"/>
+                        <outlet property="userTextField" destination="ru0-Sz-n4t" id="C4q-HB-Flu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g1x-AS-5wo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2434.5" y="349.5"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Nki-YV-4Qg">

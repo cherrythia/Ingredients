@@ -43,4 +43,8 @@ class LoginViewController:  UIViewController ,UISplitViewControllerDelegate{
             }
         }
     }
+    @IBAction func registerUser(sender: AnyObject) {
+        let registerVC : AnyObject? = self.storyboard?.instantiateViewControllerWithIdentifier("registerUser")
+        self.presentViewController(registerVC as! UIViewController, animated: true, completion: nil)
+    }
 }
