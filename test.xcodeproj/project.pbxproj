@@ -16,6 +16,7 @@
 		3C0655B41BF611850081CBA1 /* testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0655B31BF611850081CBA1 /* testTests.swift */; };
 		3C0655BF1BF611850081CBA1 /* testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0655BE1BF611850081CBA1 /* testUITests.swift */; };
 		3C06560B1BF614080081CBA1 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C06560A1BF614080081CBA1 /* AddItemViewController.swift */; };
+		3C26CFF41BFA33C9009C3B64 /* tableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C26CFF31BFA33C9009C3B64 /* tableViewCell.swift */; };
 		3C6E6D1F1BF77EC8008FD0C3 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6E6D181BF77EC8008FD0C3 /* Bolts.framework */; };
 		3C6E6D201BF77EC8008FD0C3 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6E6D191BF77EC8008FD0C3 /* Parse.framework */; };
 		3C6E6D211BF77EC8008FD0C3 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6E6D1A1BF77EC8008FD0C3 /* ParseCrashReporting.framework */; };
@@ -69,6 +70,7 @@
 		3C0655BE1BF611850081CBA1 /* testUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testUITests.swift; sourceTree = "<group>"; };
 		3C0655C01BF611850081CBA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C06560A1BF614080081CBA1 /* AddItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		3C26CFF31BFA33C9009C3B64 /* tableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tableViewCell.swift; sourceTree = "<group>"; };
 		3C6E6D181BF77EC8008FD0C3 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		3C6E6D191BF77EC8008FD0C3 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		3C6E6D1A1BF77EC8008FD0C3 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				3C06559E1BF611850081CBA1 /* MasterViewController.swift */,
 				3C06560A1BF614080081CBA1 /* AddItemViewController.swift */,
 				3C0655A01BF611850081CBA1 /* DetailViewController.swift */,
+				3C26CFF31BFA33C9009C3B64 /* tableViewCell.swift */,
 				3C0655A21BF611850081CBA1 /* Main.storyboard */,
 				3C0655A51BF611850081CBA1 /* Assets.xcassets */,
 				3C0655A71BF611850081CBA1 /* LaunchScreen.storyboard */,
@@ -347,6 +350,7 @@
 				3C06559F1BF611850081CBA1 /* MasterViewController.swift in Sources */,
 				3CDA3D901BFA1C4D005859F0 /* LoginViewController.swift in Sources */,
 				3C06559D1BF611850081CBA1 /* AppDelegate.swift in Sources */,
+				3C26CFF41BFA33C9009C3B64 /* tableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
